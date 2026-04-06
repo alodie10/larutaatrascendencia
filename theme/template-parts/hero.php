@@ -18,7 +18,7 @@ $subtitle = get_theme_mod( 'lrt_hero_subtitle', 'Novela corta de ciencia ficció
                     <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--cyan), var(--magenta));"></div>
                     <span class="hero-badge">Novela Ganadora del Premio UPC</span>
                     <h1 class="hero-title" style="margin: 1.5rem 0; font-family: 'Orbitron', sans-serif;">
-                        <?php echo $title; ?>
+                        La Ruta <span class="hero-bridge">a</span><span class="hero-main">Trascendencia</span>
                     </h1>
                     <p class="hero-subtitle" style="margin-bottom: 2.5rem;">
                         Un periodista en busca de su memoria en un pueblo donde el tiempo se percibe de forma no lineal. Una obra maestra del Hard SF argentino.

@@ -3,7 +3,7 @@ Theme Name: La Ruta a Trascendencia
 Theme URI: https://larutaatrascendencia.com.ar/
 Author: Antigravity AI
 Description: Un tema minimalista y futurístico diseñado para la novela de Alejandro Alonso. Estética Deep Space con Glassmorphism y Toques PRO.
-Version: 1.0.1
+Version: 1.0.3
 Text Domain: lrt-theme
 */
 
@@ -178,15 +178,36 @@ section { padding: 7rem 0; position: relative; scroll-margin-top: 100px; }
     margin-bottom: 1.5rem;
     text-shadow: var(--glow-cyan);
     animation: fadeInDown 0.8s 0.1s ease both;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
 }
 
 .hero-title span {
+    display: block;
+    font-size: min(1em, 12vw); /* Fallback */
+}
+
+/* Partícula "a" centrada y estilizada */
+.hero-title .hero-bridge {
+    display: block;
+    font-size: 0.4em;
+    text-align: center;
+    width: 100%;
+    margin: 0.5rem 0;
+    opacity: 0.8;
+    letter-spacing: 12px;
+    text-indent: 12px; /* Centrado visual real con letter-spacing */
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Redimensionamiento de Trascendencia */
+.hero-title .hero-main {
+    font-size: 0.65em;
+    letter-spacing: -2px;
     background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -696,6 +717,13 @@ section { padding: 7rem 0; position: relative; scroll-margin-top: 100px; }
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+    visibility: visible !important;
+}
+
+/* Fallback for no-js or initial load */
+.no-js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* ===== RESPONSIVE ===== */
