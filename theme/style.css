@@ -68,7 +68,7 @@ body::before {
 }
 
 /* ===== SECTIONS ===== */
-section { padding: 7rem 0; position: relative; }
+section { padding: 7rem 0; position: relative; scroll-margin-top: 100px; }
 
 .section-label {
     font-family: 'Orbitron', sans-serif;
@@ -106,6 +106,7 @@ section { padding: 7rem 0; position: relative; }
     overflow: hidden;
     position: relative;
     background-color: var(--space-bg);
+    padding-top: 100px;
 }
 
 .hero-background {
