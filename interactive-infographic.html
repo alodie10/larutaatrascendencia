@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Interactiva - La Ruta a Trascendencia</title>
+    <style>
+        :root {
+            --electric-blue: #00d2ff;
+            --neon-purple: #9d50bb;
+            --glass-bg: rgba(10, 10, 42, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #f0f4f8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .infographic-container {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            background: #03030b;
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            cursor: grab;
+        }
+
+        .infographic-container:active {
+            cursor: grabbing;
+        }
+
+        #infographic-wrapper {
+            position: absolute;
+            transform-origin: 0 0;
+            transition: transform 0.1s ease-out;
+        }
+
+        #infographic-img {
+            display: block;
+            max-width: none;
+            user-select: none;
+        }
+
+        .hotspot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--electric-blue);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--electric-blue);
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+            70% { transform: scale(1.2); opacity: 0.8; box-shadow: 0 0 0 15px rgba(0, 210, 255, 0); }
+            100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
+
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            color: var(--text-primary);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            z-index: 20;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .info-panel.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .info-panel h3 {
+            margin: 0 0 10px 0;
+            color: var(--electric-blue);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-panel p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #a0aec0;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 30;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .control-btn:hover {
+            background: rgba(0, 210, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="infographic-container" id="container">
+        <div class="controls">
+            <div class="control-btn" id="zoom-in">+</div>
+            <div class="control-btn" id="zoom-out">−</div>
+            <div class="control-btn" id="reset-zoom">⟲</div>
+        </div>
+
+        <div id="infographic-wrapper">
+            <!-- Replace with the actual path to the image in the final setup -->
+            <img src="Infografia.png" id="infographic-img" alt="La Ruta a Trascendencia Infografía">
+            
+            <!-- Dynamic Hotspots will be added here or positioned manually -->
+            <div class="hotspot" style="top: 25%; left: 35%;" data-title="TRASCENDENCIA" data-desc="Pueblo rebautizado tras la guerra épica. Sus habitantes perciben el pasado y el futuro simultáneamente."></div>
+            <div class="hotspot" style="top: 60%; left: 55%;" data-title="MÉTRICA DE ALCUBIERRE" data-desc="El motor warp teórico que sustenta la física del Primer Epicentro y la alteración del espacio-tiempo."></div>
+            <div class="hotspot" style="top: 15%; left: 75%;" data-title="LOS TRACS" data-desc="Seres transformados por el Primer Epicentro que viven en una dimensión temporal distinta."></div>
+        </div>
+
+        <div class="info-panel" id="info-panel">
+            <h3 id="panel-title">Título</h3>
+            <p id="panel-desc">Descripción detallada aparecerá aquí.</p>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const wrapper = document.getElementById('infographic-wrapper');
+        const panel = document.getElementById('info-panel');
+        const title = document.getElementById('panel-title');
+        const desc = document.getElementById('panel-desc');
+
+        let scale = 1;
+        let pX = 0;
+        let pY = 0;
+        let isDragging = false;
+        let startX, startY;
+
+        // Zoom Logic
+        function updateTransform() {
+            wrapper.style.transform = `translate(${pX}px, ${pY}px) scale(${scale})`;
+        }
+
+        document.getElementById('zoom-in').onclick = () => { scale *= 1.2; updateTransform(); };
+        document.getElementById('zoom-out').onclick = () => { scale /= 1.2; updateTransform(); };
+        document.getElementById('reset-zoom').onclick = () => { scale = 1; pX = 0; pY = 0; updateTransform(); };
+
+        // Pan Logic
+        container.onmousedown = (e) => {
+            if (e.target.classList.contains('hotspot') || e.target.closest('.controls')) return;
+            isDragging = true;
+            startX = e.clientX - pX;
+            startY = e.clientY - pY;
+        };
+
+        window.onmousemove = (e) => {
+            if (!isDragging) return;
+            pX = e.clientX - startX;
+            pY = e.clientY - startY;
+            updateTransform();
+        };
+
+        window.onmouseup = () => isDragging = false;
+
+        // Hotspot Interaction
+        document.querySelectorAll('.hotspot').forEach(hs => {
+            hs.onclick = (e) => {
+                title.innerText = hs.getAttribute('data-title');
+                desc.innerText = hs.getAttribute('data-desc');
+                panel.classList.add('active');
+                e.stopPropagation();
+            };
+        });
+
+        container.onclick = () => {
+            panel.classList.remove('active');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* 
+  Theme Name: La Ruta a Trascendencia (Sci-Fi Custom)
+  Description: Custom design system for the novel promotion site.
+  Portability: Copy this CSS into the WordPress Customizer or Child Theme.
+*/
+
+:root {
+    /* Primary Colors (Space/Deep Future) */
+    --space-bg: #03030b;
+    --deep-navy: #0a0a2a;
+    --electric-blue: #00d2ff;
+    --neon-purple: #9d50bb;
+    --accent: var(--electric-blue);
+    
+    /* Text Colors */
+    --text-primary: #f0f4f8;
+    --text-secondary: #a0aec0;
+    
+    /* Glassmorphism Effect */
+    --glass-bg: rgba(10, 10, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+    
+    /* Layout */
+    --container-width: 1100px;
+}
+
+/* Global Reset (Base only) */
+body {
+    background-color: var(--space-bg);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', 'Outfit', -apple-system, system-ui, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Card Style */
+.sci-fi-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Neon Text Effects */
+.neon-text {
+    color: var(--electric-blue);
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.5), 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+/* Hero Section Base */
+.hero-wrapper {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top right, rgba(157, 80, 187, 0.1), transparent),
+                radial-gradient(circle at bottom left, rgba(0, 210, 255, 0.1), transparent);
+}
+
+/* Buttons */
+.btn-sci-fi {
+    background: linear-gradient(45deg, var(--electric-blue), var(--neon-purple));
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 12px 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+}
+
+.btn-sci-fi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
+}
+
+/* Lore Cards */
+.lore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+}
+
+.lore-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.lore-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--electric-blue);
+}
+
+.lore-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--electric-blue);
+    letter-spacing: 1px;
+}
+
+/* Infographic Section Styling */
+.infographic-wrapper {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.infographic-iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    background: var(--deep-navy);
+}
+
+/* Section Titles */
+.section-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, var(--electric-blue), transparent);
+}
