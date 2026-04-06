@@ -24,7 +24,7 @@ function lrt_enqueue_assets() {
     wp_enqueue_style( 'lrt-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@700;900&display=swap', array(), null );
     
     // Estilo principal del tema
-    wp_enqueue_style( 'lrt-main-style', get_stylesheet_uri(), array(), '1.0.0' );
+    wp_enqueue_style( 'lrt-main-style', get_stylesheet_uri(), array(), '1.0.1' );
 }
 add_action( 'wp_enqueue_scripts', 'lrt_enqueue_assets' );
 
