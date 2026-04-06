@@ -12,15 +12,15 @@
             left: 0;
             right: 0;
             z-index: 9999;
-            padding: 1.2rem 2rem;
-            background: rgba(3, 3, 11, 0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            padding: 1rem 4rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: background 0.3s, top 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Ajuste para la barra de admin de WordPress */
@@ -36,22 +36,24 @@
 
         .nav-logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            background: linear-gradient(90deg, var(--cyan), var(--violet));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
             text-decoration: none;
-            line-height: 1.4; /* Evita que se corte el gradiente */
+            line-height: 1.4;
             display: inline-block;
+            transition: text-shadow 0.3s;
+        }
+
+        .nav-logo:hover {
+            text-shadow: var(--glow-cyan);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -61,17 +63,42 @@
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: color 0.2s;
+            transition: all 0.3s;
             line-height: 1;
             padding: 0.5rem 0;
             display: block;
+            position: relative;
         }
 
-        .nav-links a:hover { color: var(--cyan); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { 
+            color: var(--cyan); 
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
+        }
         
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        @media (max-width: 1024px) {
+            nav { padding: 1rem 2rem; }
+            .nav-links { gap: 1.5rem; }
+        }
+
         @media (max-width: 900px) {
             .nav-links { display: none; }
         }

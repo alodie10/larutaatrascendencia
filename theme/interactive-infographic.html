@@ -181,14 +181,35 @@
         let isDragging = false;
         let startX, startY;
 
+        const imgWidth = 2752;
+        const imgHeight = 1536;
+
+        function initScale() {
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+            
+            const scaleX = containerWidth / imgWidth;
+            const scaleY = containerHeight / imgHeight;
+            
+            scale = Math.min(scaleX, scaleY, 1) * 0.95; // 95% del tamaño para dejar margen
+            
+            pX = (containerWidth - (imgWidth * scale)) / 2;
+            pY = (containerHeight - (imgHeight * scale)) / 2;
+            
+            updateTransform();
+        }
+
         // Zoom Logic
         function updateTransform() {
             wrapper.style.transform = `translate(${pX}px, ${pY}px) scale(${scale})`;
         }
 
+        window.onload = initScale;
+        window.onresize = initScale;
+
         document.getElementById('zoom-in').onclick = () => { scale *= 1.2; updateTransform(); };
         document.getElementById('zoom-out').onclick = () => { scale /= 1.2; updateTransform(); };
-        document.getElementById('reset-zoom').onclick = () => { scale = 1; pX = 0; pY = 0; updateTransform(); };
+        document.getElementById('reset-zoom').onclick = () => { initScale(); };
 
         // Pan Logic
         container.onmousedown = (e) => {
