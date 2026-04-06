@@ -14,7 +14,7 @@ $subtitle = get_theme_mod( 'lrt_hero_subtitle', 'Novela corta de ciencia ficció
         <div class="row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: stretch;">
             <!-- Lado Izquierdo: Información de la Novela -->
             <div class="column">
-                <div class="glass-card reveal" style="padding: 3rem; height: 100%; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
+                <div class="glass-card reveal" style="padding: 3rem; height: 100%; border: 1px solid var(--glass-border); position: relative;">
                     <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--cyan), var(--magenta));"></div>
                     <span class="hero-badge">Novela Ganadora del Premio UPC</span>
                     <h1 class="hero-title" style="margin: 1.5rem 0; font-family: 'Orbitron', sans-serif;">

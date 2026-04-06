@@ -170,13 +170,19 @@ section { padding: 7rem 0; position: relative; }
 
 .hero-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-size: clamp(2rem, 6vw, 4.8rem);
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: 1.5rem;
     text-shadow: var(--glow-cyan);
     animation: fadeInDown 0.8s 0.1s ease both;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
 
 .hero-title span {
