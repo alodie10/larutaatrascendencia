@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Ruta a Trascendencia — Alejandro Alonso</title>
+    <meta name="description" content="Sitio oficial de La Ruta a Trascendencia, novela corta de ciencia ficción de Alejandro Alonso. Ganadora del Premio UPC 2002. Hard SF argentino.">
+    <meta name="keywords" content="La Ruta a Trascendencia, Alejandro Alonso, ciencia ficción argentina, Premio UPC, hard science fiction">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== DESIGN SYSTEM ===== */
+        :root {
+            --space-bg: #03030b;
+            --deep-navy: #08082a;
+            --cyan: #00f2ff;
+            --violet: #7000ff;
+            --neon-purple: #9d50bb;
+            --text-primary: #f0f4f8;
+            --text-secondary: #8892a4;
+            --glass-bg: rgba(8, 8, 42, 0.65);
+            --glass-border: rgba(0, 242, 255, 0.12);
+            --container: 1100px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--space-bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== STARFIELD BACKGROUND ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(2px 2px at 10% 70%, rgba(0,242,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 40% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(2px 2px at 30% 15%, rgba(112,0,255,0.25) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(3, 3, 11, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s;
+        }
+
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--cyan); }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 7rem 0; position: relative; }
+
+        .section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            border-radius: 3px;
+            margin-bottom: 3rem;
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 80% 50%, rgba(112,0,255,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 70%, rgba(0,242,255,0.12) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid rgba(0, 242, 255, 0.25);
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease both;
+        }
+
+        .hero-badge::before {
+            content: '★';
+            font-size: 0.65rem;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s 0.1s ease both;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s 0.2s ease both;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s 0.3s ease both;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .hero-meta-label {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .hero-meta-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s 0.4s ease both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan), var(--violet));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            padding: 0.85rem 2.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(0, 242, 255, 0.3);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 242, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            padding: 0.85rem 2.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-3px);
+        }
+
+        /* Scrolling line decoration */
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll-hint::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--cyan), transparent);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #argumento {
+            background: linear-gradient(180deg, transparent, rgba(8,8,42,0.3), transparent);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .about-text p:last-child { margin-bottom: 0; }
+
+        .highlight-quote {
+            border-left: 3px solid var(--cyan);
+            padding: 1.2rem 1.5rem;
+            background: rgba(0, 242, 255, 0.05);
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== LORE CARDS ===== */
+        #lore { position: relative; }
+
+        .lore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .lore-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+
+        .lore-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lore-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 242, 255, 0.07);
+        }
+
+        .lore-card:hover::before { opacity: 1; }
+
+        .lore-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .lore-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+        }
+
+        .lore-card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ===== CIENCIA SECTION ===== */
+        #ciencia {
+            background: radial-gradient(ellipse at center, rgba(112,0,255,0.07) 0%, transparent 70%);
+        }
+
+        .ciencia-content {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .alcubierre-visual {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alcubierre-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid;
+            animation: rotate 20s linear infinite;
+        }
+
+        .ring-1 {
+            width: 100%;
+            height: 100%;
+            border-color: rgba(0, 242, 255, 0.2);
+            animation-duration: 25s;
+        }
+
+        .ring-2 {
+            width: 75%;
+            height: 75%;
+            border-color: rgba(112, 0, 255, 0.3);
+            animation-duration: 18s;
+            animation-direction: reverse;
+        }
+
+        .ring-3 {
+            width: 50%;
+            height: 50%;
+            border-color: rgba(0, 242, 255, 0.4);
+            animation-duration: 12s;
+        }
+
+        .alcubierre-core {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(0,242,255,0.3), rgba(112,0,255,0.2), transparent);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4), 0 0 60px rgba(112, 0, 255, 0.2);
+            animation: pulse-core 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-core {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        .ciencia-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 0.97rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: rgba(0, 242, 255, 0.08);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 6px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--cyan);
+            margin: 0.2rem;
+        }
+
+        .tech-tags { margin-top: 1.5rem; }
+
+        /* ===== RECEPTION ===== */
+        #recepcion { background: linear-gradient(180deg, transparent, rgba(8,8,42,0.25), transparent); }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .review-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 255, 0.25);
+        }
+
+        .review-stars {
+            color: var(--cyan);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .review-source {
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            opacity: 0.75;
+        }
+
+        /* ===== AWARDS ===== */
+        #premios {
+            background: radial-gradient(ellipse at top center, rgba(112,0,255,0.08) 0%, transparent 60%);
+        }
+
+        .awards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .award-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .award-item:hover {
+            transform: translateX(6px);
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        .award-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .award-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .award-detail {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== INFOGRAPHIC SECTION ===== */
+        #infografia { padding: 5rem 0; }
+
+        .infographic-frame {
+            width: 100%;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.08), 0 20px 60px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .infographic-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== PUBLICACIONES ===== */
+        #publicaciones {
+            background: linear-gradient(180deg, transparent, rgba(8,8,42,0.3), transparent);
+        }
+
+        .pub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pub-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(112, 0, 255, 0.4);
+        }
+
+        .pub-year {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-detail {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        .footer-text a {
+            color: var(--cyan);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-text a:hover { opacity: 1; }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* Intersection Observer fade-in */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-links { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .ciencia-content { grid-template-columns: 1fr; }
+            .alcubierre-visual { display: none; }
+            .hero-meta { gap: 1rem; }
+            section { padding: 5rem 0; }
+            .infographic-frame { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">LRT</a>
+        <ul class="nav-links">
+            <li><a href="#argumento">Argumento</a></li>
+            <li><a href="#lore">Universo</a></li>
+            <li><a href="#ciencia">Ciencia</a></li>
+            <li><a href="#recepcion">Recepción</a></li>
+            <li><a href="#infografia">Infografía</a></li>
+            <li><a href="#publicaciones">Publicaciones</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Premio UPC 2002 — Ex Aequo</div>
+                <h1 class="hero-title">La Ruta a<br><span>Trascendencia</span></h1>
+                <p class="hero-subtitle">
+                    Novela corta de ciencia ficción dura. Un periodista. Un pueblo aislado. 
+                    Seres que perciben el pasado y el futuro simultáneamente. 
+                    Una anomalía que desafía el espacio-tiempo.
+                </p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-label">Autor</span>
+                        <span class="hero-meta-value">Alejandro Alonso</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-label">Género</span>
+                        <span class="hero-meta-value">Hard Science Fiction</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-label">Publicación</span>
+                        <span class="hero-meta-value">2003 / 2005</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-label">País</span>
+                        <span class="hero-meta-value">Argentina</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#argumento" class="btn-primary">Explorar la novela</a>
+                    <a href="#infografia" class="btn-secondary">Ver infografía</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">Scroll</div>
+    </section>
+
+    <!-- ===== ARGUMENTO ===== -->
+    <section id="argumento">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <p class="section-label">Sinopsis</p>
+                    <h2 class="section-title">El argumento</h2>
+                    <div class="section-divider"></div>
+                    <div class="about-text">
+                        <p>
+                            Antonio Segura, periodista desempleado de unos treinta años, viaja desde la capital 
+                            de provincia al interior para reunirse con su primo Rolando, comisario del pequeño 
+                            pueblo de Trascendencia.
+                        </p>
+                        <p>
+                            La localidad —rebautizada así tras una guerra de quince días contra invasores 
+                            extraterrestres llamados <em>epics</em>— se encuentra militarmente aislada del 
+                            resto del país. En sus proximidades se ubica el sitio conocido como el 
+                            <strong>Primer Epicentro</strong>.
+                        </p>
+                        <p>
+                            Los gendarmes del puesto de control le advierten que verá «cosas raras», figuras 
+                            que llaman <em>estelas</em>, y que no les preste atención.
+                        </p>
+                        <div class="highlight-quote">
+                            «El pasado que vuelve a enfrentarse con mi vida.»
+                            <br><small>— Carlos Gardel & Alfredo Le Pera, «Volver» (epígrafe de la novela)</small>
+                        </div>
+                        <p>
+                            Lo que Segura descubre al llegar es que los habitantes de Trascendencia perciben 
+                            simultáneamente el pasado y el futuro inmediatos de cualquier acción: son los 
+                            <em>trascendis</em> o <em>tracs</em>. Lo que ocurre después en ese pueblo aislado 
+                            —y por qué Segura no puede abandonarlo— es el corazón de la novela.
+                        </p>
+                    </div>
+                </div>
+                <div class="glass-card reveal">
+                    <p class="section-label">Ficha bibliográfica</p>
+                    <table style="width:100%; border-collapse:collapse; margin-top:1rem;">
+                        <tr style="border-bottom:1px solid var(--glass-border);">
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem; width:40%;">Autor</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem; font-weight:600;">Alejandro Alonso</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--glass-border);">
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem;">Género</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem;">Ciencia ficción (Hard SF)</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--glass-border);">
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem;">Idioma</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem;">Español</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--glass-border);">
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem;">Editorial (2003)</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem;">Ediciones B</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--glass-border);">
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem;">Editorial (2005)</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem;">Página/12 / La Página</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--glass-border);">
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem;">Páginas</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem;">175 (ed. Página/12)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.75rem 0; color:var(--text-secondary); font-size:0.82rem;">ISBN</td>
+                            <td style="padding:0.75rem 0; font-size:0.9rem;">9788466611114</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== UNIVERSO / LORE ===== -->
+    <section id="lore">
+        <div class="container">
+            <p class="section-label">Universo</p>
+            <h2 class="section-title">Elementos del mundo</h2>
+            <div class="section-divider"></div>
+            <div class="lore-grid">
+                <div class="lore-card reveal">
+                    <span class="lore-icon">🏘️</span>
+                    <h3>Trascendencia</h3>
+                    <p>Pueblo rebautizado tras una guerra de quince días contra invasores extraterrestres. Militarmente aislado del resto del país, sus habitantes viven en una dimensión temporal distinta a la del resto del mundo.</p>
+                </div>
+                <div class="lore-card reveal" style="transition-delay:0.1s">
+                    <span class="lore-icon">👁️</span>
+                    <h3>Los Tracs</h3>
+                    <p>Seres transformados por la influencia del Primer Epicentro. Perciben simultáneamente el pasado y el futuro inmediatos de cualquier acción. Su conciencia existe en múltiples planos temporales a la vez.</p>
+                </div>
+                <div class="lore-card reveal" style="transition-delay:0.2s">
+                    <span class="lore-icon">☄️</span>
+                    <h3>El Primer Epicentro</h3>
+                    <p>Sitio de contacto con los invasores «epics». Una zona de anomalía espacio-temporal donde la métrica de Alcubierre se manifiesta, alterando radicalmente la percepción del tiempo local.</p>
+                </div>
+                <div class="lore-card reveal" style="transition-delay:0.3s">
+                    <span class="lore-icon">👽</span>
+                    <h3>Los Epics</h3>
+                    <p>Invasores extraterrestres cuya breve guerra de quince días transformó para siempre a un pueblo. Su naturaleza permanece misteriosa, pero su tecnología dejó una huella permanente en el tejido del espacio-tiempo.</p>
+                </div>
+                <div class="lore-card reveal" style="transition-delay:0.4s">
+                    <span class="lore-icon">👤</span>
+                    <h3>Antonio Segura</h3>
+                    <p>Periodista desempleado de unos treinta años. Protagonista y punto de vista del lector. Su llegada a Trascendencia desencadena la trama y lo enfrenta a preguntas sobre el tiempo, la culpa y la memoria.</p>
+                </div>
+                <div class="lore-card reveal" style="transition-delay:0.5s">
+                    <span class="lore-icon">🌀</span>
+                    <h3>Las Estelas</h3>
+                    <p>«Cosas raras» que los gendarmes del puesto de control advierten a los visitantes. Figuras imposibles que advierten al viajero que ha ingresado a una zona donde las reglas del tiempo ya no aplican.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CIENCIA ===== -->
+    <section id="ciencia">
+        <div class="container">
+            <div class="ciencia-content">
+                <div class="alcubierre-visual">
+                    <div class="alcubierre-ring ring-1"></div>
+                    <div class="alcubierre-ring ring-2"></div>
+                    <div class="alcubierre-ring ring-3"></div>
+                    <div class="alcubierre-core"></div>
+                </div>
+                <div class="ciencia-text">
+                    <p class="section-label">Contexto científico</p>
+                    <h2 class="section-title">La Métrica de Alcubierre</h2>
+                    <div class="section-divider"></div>
+                    <p>
+                        El mecanismo central de la novela —la percepción simultánea de múltiples instantes 
+                        temporales— dialoga con la física teórica contemporánea, en particular con la 
+                        <strong>Métrica de Alcubierre</strong>, propuesta por el físico Miguel Alcubierre en 1994.
+                    </p>
+                    <p>
+                        Alcubierre demostró que, dentro del marco de la relatividad general, es posible 
+                        modificar el espacio-tiempo de manera que una nave pueda desplazarse a velocidades 
+                        arbitrariamente grandes mediante la expansión local del espacio-tiempo detrás de la 
+                        nave y su contracción frente a ella —el principio del «motor warp» de Star Trek.
+                    </p>
+                    <p>
+                        La experiencia de los <em>tracs</em> puede leerse como una exploración literaria de 
+                        las implicaciones perceptivas y existenciales de una alteración radical del espacio-tiempo 
+                        producida por un evento físico extraordinario.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Relatividad General</span>
+                        <span class="tech-tag">Métrica de Alcubierre</span>
+                        <span class="tech-tag">Motor Warp</span>
+                        <span class="tech-tag">Espacio-tiempo</span>
+                        <span class="tech-tag">Hard SF</span>
+                        <span class="tech-tag">Física Teórica</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RECEPCIÓN ===== -->
+    <section id="recepcion">
+        <div class="container">
+            <p class="section-label">Crítica literaria</p>
+            <h2 class="section-title">Recepción</h2>
+            <div class="section-divider"></div>
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        «Una magnífica muestra de las posibilidades que brinda la ciencia ficción para la especulación 
+                        científica y filosófica, además de brindarnos un final tan impactante como sorpresivo.»
+                    </p>
+                    <span class="review-source">Daniel Salvo — ciencia-ficcion.com</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay:0.1s">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        «Se devoran más que se leen.» La sitúa en la tradición de las zonas de anomalía espacio-temporal 
+                        que los hermanos Strugatski elaboraron en <em>Picnic junto al camino</em>.
+                    </p>
+                    <span class="review-source">La Tercera Fundación — Biblioteca CF en Español</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay:0.2s">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        «Los detalles técnicos de la narración y el rigor científico son un foco primordial», 
+                        situándola dentro del hard science fiction.
+                    </p>
+                    <span class="review-source">Viajar Leyendo 451</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay:0.3s">
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">
+                        Destaca el «tono y lenguaje que remite fuertemente a lo nacional» de la obra, a pesar 
+                        de que su escenario no se especifica geográficamente.
+                    </p>
+                    <span class="review-source">Ángel Berlanga — Página/12 (2004)</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay:0.4s">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        Analiza la obra como parte de la tradición latinoamericana de CF sobre mutantes: sus 
+                        habitantes encarnan el trauma de una nación cuyas narrativas de progreso fueron 
+                        radicalmente cuestionadas por los eventos de 2001.
+                    </p>
+                    <span class="review-source">Antonio Córdoba — Peter Lang Companion to Latin American SF (2022)</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay:0.5s">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        «Reúne cualidades similares a las de la ganadora compartida, pero adaptadas a un entorno 
+                        completamente diferente (un pueblecito sudamericano), lo que acentúa el contraste entre ambas obras.»
+                    </p>
+                    <span class="review-source">Wiki Alt64 — Reseña Premio UPC 2002</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PREMIOS ===== -->
+    <section id="premios">
+        <div class="container" style="text-align:center;">
+            <p class="section-label">Reconocimientos</p>
+            <h2 class="section-title">Premios y distinciones</h2>
+            <div class="section-divider" style="margin: 0 auto 3rem;"></div>
+            <div class="awards-list">
+                <div class="award-item reveal">
+                    <span class="award-icon">🏆</span>
+                    <div>
+                        <div class="award-name">Premio Internacional UPC de Ciencia Ficción 2002</div>
+                        <div class="award-detail">Ex aequo — Universitat Politècnica de Catalunya. Premio europeo de mayor prestigio en ciencia ficción.</div>
+                    </div>
+                </div>
+                <div class="award-item reveal" style="transition-delay:0.1s">
+                    <span class="award-icon">🥇</span>
+                    <div>
+                        <div class="award-name">Premio Ciudad de Arena a la Revelación Literaria 2003</div>
+                        <div class="award-detail">Fundación Ciudad de Arena.</div>
+                    </div>
+                </div>
+                <div class="award-item reveal" style="transition-delay:0.2s">
+                    <span class="award-icon">🎖️</span>
+                    <div>
+                        <div class="award-name">Finalista Premio Ignotus 2004</div>
+                        <div class="award-detail">Mejor novela corta — Premio Ignotus de la ciencia ficción en español.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INFOGRAFÍA ===== -->
+    <section id="infografia">
+        <div class="container">
+            <p class="section-label">Mapa interactivo</p>
+            <h2 class="section-title">Navegación táctica</h2>
+            <div class="section-divider"></div>
+            <p style="color:var(--text-secondary); margin-bottom:2rem; font-size:0.95rem;">
+                Explorá el universo de Trascendencia. Hacé zoom, arrastrá la imagen y tocá los hotspots para descubrir información sobre cada elemento del mundo.
+            </p>
+            <div class="infographic-frame reveal">
+                <iframe src="interactive-infographic.html" title="Infografía interactiva de La Ruta a Trascendencia" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PUBLICACIONES ===== -->
+    <section id="publicaciones">
+        <div class="container">
+            <p class="section-label">Ediciones</p>
+            <h2 class="section-title">Publicaciones</h2>
+            <div class="section-divider"></div>
+            <div class="pub-grid">
+                <div class="pub-card reveal">
+                    <div class="pub-year">2003</div>
+                    <div class="pub-title">Premio UPC 2002: Novela corta de ciencia ficción</div>
+                    <div class="pub-detail">
+                        Ediciones B — Colección Nova nº 158, Barcelona.<br>
+                        ISBN 9788466611114.<br>
+                        Incluye conferencia de Vernor Vinge sobre la singularidad tecnológica.
+                    </div>
+                </div>
+                <div class="pub-card reveal" style="transition-delay:0.1s">
+                    <div class="pub-year">2005</div>
+                    <div class="pub-title">La ruta a Trascendencia</div>
+                    <div class="pub-detail">
+                        Editorial La Página / Página/12, Buenos Aires.<br>
+                        Colección Literatura Fantástica y Ciencia Ficción nº 5. 175 páginas.<br>
+                        Incluye la serie de relatos <em>Fuegos fatuos</em>.
+                    </div>
+                </div>
+                <div class="pub-card reveal" style="transition-delay:0.2s">
+                    <div class="pub-year">2015</div>
+                    <div class="pub-title">Revista Axxón nº 263</div>
+                    <div class="pub-detail">
+                        Publicación digital completa por capítulos, con ilustraciones de Tut.<br>
+                        Incluye reedición del cuento «Demasiado tiempo» y entrevista al autor por Ricardo Giorno.
+                    </div>
+                </div>
+                <div class="pub-card reveal" style="transition-delay:0.3s">
+                    <div class="pub-year">1992</div>
+                    <div class="pub-title">«Demasiado tiempo» — Origen de la novela</div>
+                    <div class="pub-detail">
+                        Primer texto de ficción publicado por Alonso.<br>
+                        Apareció en el nº 33 de la revista digital <em>Axxón</em>.<br>
+                        Germen narrativo de <em>La Ruta a Trascendencia</em>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">La Ruta a Trascendencia</div>
+            <div class="footer-text">
+                <p>Alejandro Alonso — San Martín, Buenos Aires, 1970</p>
+                <p>Premio Internacional UPC de Ciencia Ficción 2002</p>
+                <br>
+                <p style="opacity:0.5">Sitio no oficial creado con fines literarios y culturales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.style.background = 'rgba(3, 3, 11, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(3, 3, 11, 0.7)';
+            }
+        });
+
+        // Intersection Observer for reveal animations
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
