@@ -31,7 +31,21 @@ $premios_query = new WP_Query( array(
                     <span class="award-icon">🏆</span>
                     <div>
                         <div class="award-name">Premio Internacional UPC de Ciencia Ficción 2002</div>
-                        <div class="award-detail">Ex aequo — Universitat Politècnica de Catalunya.</div>
+                        <div class="award-detail">Ganador (Ex aequo) — Universitat Politècnica de Catalunya.</div>
+                    </div>
+                </div>
+                <div class="award-item reveal">
+                    <span class="award-icon">✨</span>
+                    <div>
+                        <div class="award-name">Premio Ciudad de Arena a la Revelación Literaria 2003</div>
+                        <div class="award-detail">Ganador (Fundación Ciudad de Arena).</div>
+                    </div>
+                </div>
+                <div class="award-item reveal">
+                    <span class="award-icon">🥈</span>
+                    <div>
+                        <div class="award-name">Finalista del Premio Ignotus 2004</div>
+                        <div class="award-detail">Categoría Mejor Novela Corta.</div>
                     </div>
                 </div>
             <?php endif; ?>

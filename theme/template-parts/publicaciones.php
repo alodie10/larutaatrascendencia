@@ -19,7 +19,7 @@ $publicaciones_query = new WP_Query( array(
             <?php if ( $publicaciones_query->have_posts() ) : ?>
                 <?php while ( $publicaciones_query->have_posts() ) : $publicaciones_query->the_post(); ?>
                     <div class="pub-card reveal">
-                        <div class="pub-year">Año</div> <!-- Año como metadato manual o ACF o similar -->
+                        <div class="pub-year"><?php echo get_post_meta( get_the_ID(), 'ano_publicacion', true ); ?></div>
                         <div class="pub-title"><?php the_title(); ?></div>
                         <div class="pub-detail"><?php the_content(); ?></div>
                     </div>
@@ -28,12 +28,17 @@ $publicaciones_query = new WP_Query( array(
                 <div class="pub-card reveal">
                     <div class="pub-year">2003</div>
                     <div class="pub-title">Premio UPC 2002: Novela corta de ciencia ficción</div>
-                    <div class="pub-detail">Ediciones B — Colección Nova nº 158, Barcelona.</div>
+                    <div class="pub-detail">Ediciones B — Colección Nova nº 158, Barcelona. (ISBN 9788466611114).</div>
                 </div>
                 <div class="pub-card reveal">
                     <div class="pub-year">2005</div>
-                    <div class="pub-title">La ruta a Trascendencia</div>
-                    <div class="pub-detail">Editorial La Página / Página/12.</div>
+                    <div class="pub-title">La ruta a Trascendencia (y Otros Relatos)</div>
+                    <div class="pub-detail">Editorial La Página / Página/12. Colección Literatura Fantástica nº 5.</div>
+                </div>
+                <div class="pub-card reveal">
+                    <div class="pub-year">2015</div>
+                    <div class="pub-title">Revista Axxón nº 263</div>
+                    <div class="pub-detail">Publicación digital completa por capítulos. Edición especial.</div>
                 </div>
             <?php endif; ?>
         </div>

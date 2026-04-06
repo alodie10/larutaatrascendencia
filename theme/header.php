@@ -79,7 +79,7 @@
 </head>
 <body <?php body_class(); ?>>
     <nav id="navbar">
-        <a href="<?php echo home_url(); ?>" class="nav-logo">LRT</a>
+        <a href="<?php echo home_url(); ?>" class="nav-logo">La ruta a Trascendencia</a>
         <ul class="nav-links">
             <li><a href="#argumento">Argumento</a></li>
             <li><a href="#lore">Universo</a></li>

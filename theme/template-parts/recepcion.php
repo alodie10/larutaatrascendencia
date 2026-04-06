@@ -29,13 +29,18 @@ $resenas_query = new WP_Query( array(
             <?php else : ?>
                 <div class="review-card reveal">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">«Una magnífica muestra de las posibilidades que brinda la ciencia ficción para la especulación científica y filosófica.»</p>
+                    <p class="review-text">«Una magnífica muestra de las posibilidades que brinda la ciencia ficción para la especulación científica y filosófica, además de brindarnos un final tan impactante como sorpresivo.»</p>
                     <span class="review-source">Daniel Salvo — ciencia-ficcion.com</span>
                 </div>
                 <div class="review-card reveal">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">«Se devoran más que se leen.»</p>
+                    <p class="review-text">«Una de esas obras que se devoran más que se leen, situándose en la tradición de las zonas de anomalía de los hermanos Strugatski.»</p>
                     <span class="review-source">La Tercera Fundación</span>
+                </div>
+                <div class="review-card reveal">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Los detalles técnicos de la narración y el rigor científico son un foco primordial. Fundamental del hard SF en español.»</p>
+                    <span class="review-source">Viajar Leyendo 451</span>
                 </div>
             <?php endif; ?>
         </div>
