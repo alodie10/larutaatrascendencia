@@ -1,0 +1,100 @@
+Manual de Estilo y Redacción SEO + GEO (Buscadores e IA)
+Objetivo de esta guía:
+El periodismo digital actual tiene una doble misión. Escribimos para que 
+Google nos posicione en sus primeros resultados (SEO tradicional)
+ y para que 
+las Inteligencias Artificiales (ChatGPT, Perplexity, AI Overviews) nos citen como fuente de información (GEO)
+.
+Ambos sistemas buscan lo mismo: ofrecer la mejor respuesta al usuario. A continuación, las reglas de oro para redactar artículos que conquisten tanto a los buscadores como a la IA.
+1. El Titular (H1) y la URL (Slug)
+El título es lo más importante para captar la atención, mientras que la URL ayuda a los motores a clasificar la noticia.
+Claridad sin Clickbait:
+ Las IAs y Google penalizan el misterio. El titular debe incluir la 
+palabra clave principal
+ y responder al ¿Qué? y ¿Quién?
+❌ 
+Evitar:
+ 
+"No vas a creer la nueva medida que anunció el Banco Central"
+✅ 
+Ideal:
+ 
+"El Banco Central anuncia una suba de tasas del 2% para plazos fijos"
+URL (Slug) Corta y Limpia:
+ Antes de publicar, edita el enlace de la noticia. Quita las palabras vacías (de, la, el, un) y deja solo las palabras clave.
+❌ tu-sitio.com/el-banco-central-anuncia-una-suba-de-tasas-del-2-por-ciento
+✅ tu-sitio.com/banco-central-suba-tasas-2-por-ciento
+2. El Arranque: Primer Párrafo y "En Resumen"
+Tienes milisegundos para convencer al lector, a Google y a la IA de que tu texto vale la pena.
+La regla de las 100 palabras (SEO):
+ Tu palabra o frase clave principal debe aparecer de forma natural en el primer párrafo de la noticia.
+El Resumen (GEO):
+ Justo debajo del primer párrafo, incluye siempre una sección de 
+"Puntos Clave" o "En Resumen"
+.
+Formato:
+ Usa una lista con viñetas (bullet points).
+Extensión:
+ 3 a 5 viñetas con los datos más duros de la noticia. A la IA le encanta extraer datos de aquí.
+3. Estructura: Jerarquía y Preguntas (Q&A)
+Un texto visualmente plano es abandonado por los lectores y mal calificado por los bots. Usa la jerarquía de subtítulos a tu favor.
+Jerarquía Lógica (SEO):
+ Usa 
+H2
+ para los temas principales de la nota y 
+H3
+ para subtemas. Nunca saltes de un H2 a un H4. Intenta incluir palabras clave secundarias en estos subtítulos.
+Piensa en Preguntas (GEO):
+ Transforma algunos subtítulos (H2/H3) en preguntas frecuentes de los usuarios.
+En lugar de:
+ "Impacto económico" 👉 
+Usa:
+ "¿Cómo impactará la medida en la economía local?"
+La Regla de las 50 Palabras:
+ Inmediatamente debajo de un subtítulo en forma de pregunta, responde de manera directa en un párrafo corto (40-60 palabras). Deja el análisis profundo para después.
+4. Optimización de Imágenes (SEO Fundamental)
+Google no "ve" las imágenes, las lee a través del código.
+Nombre del archivo:
+ Antes de subir la foto a WordPress, renómbrala. No subas IMG_8475.jpg. Usa manifestacion-congreso-ley-bases.jpg.
+Texto Alternativo (Alt Text):
+ Es obligatorio rellenar este campo en WordPress. Describe la imagen como si se la explicaras a alguien por teléfono (ej: "Multitud de personas protestando frente al Congreso Nacional"). Ayuda al SEO de imágenes y a la accesibilidad.
+5. Datos Duros y Citas: Autoridad (E-E-A-T)
+Google y la IA premian la Experiencia, Conocimiento, Autoridad y Confianza (E-E-A-T por sus siglas en inglés). Quieren evitar noticias falsas o datos inventados.
+Datos precisos:
+ Usa nombres completos, cargos exactos, fechas y cifras verificables.
+El bloque de Citas:
+ Cuando un protagonista hable, usa el bloque de cita (blockquote "") de WordPress. Esto le dice a las máquinas: "Aquí hay una declaración oficial".
+6. Enlaces y Contexto (Link Building Interno)
+Los enlaces son las "calles" por las que navegan los bots de Google y la IA.
+Enlaces internos:
+ Enlaza siempre a 2 o 3 artículos previos de nuestro medio para dar contexto.
+El Texto Ancla (Anchor Text):
+ Nunca uses "haz clic aquí" o "en esta nota". El enlace debe estar sobre palabras descriptivas.
+❌ "Para leer sobre la ley anterior, 
+haz clic aquí
+."
+✅ "Esta medida modifica la 
+ley de alquileres aprobada en 2023
+."
+Enlaces externos:
+ Si mencionas un estudio o ley oficial, enlaza a la fuente primaria. Da credibilidad.
+7. Meta Descripción
+Es el pequeño texto que aparece debajo del título en los resultados de Google.
+Acción:
+ Rellena siempre la caja de descripción en el plugin SEO (Yoast/Rank Math).
+Regla:
+ Debe tener menos de 155 caracteres, ser atractiva ("gancho" para que el usuario haga clic) e incluir la palabra clave principal.
+8. Firma y Biografía
+Tu reputación personal transfiere autoridad al sitio.
+Acción:
+ Asegúrate de que el artículo se publique bajo tu perfil real. Tu biografía debe incluir tu especialidad periodística.
+✅ Checklist Final antes de publicar:
+[ ] ¿El titular y el primer párrafo incluyen la palabra clave principal?
+[ ] ¿La URL (slug) es corta y descriptiva?
+[ ] ¿Completé la Meta Descripción en el plugin SEO?
+[ ] ¿Incluí una lista de viñetas (Puntos Clave) al principio?
+[ ] ¿Hay subtítulos (H2/H3), y al menos uno está en formato de pregunta?
+[ ] ¿Las imágenes subidas tienen nombres descriptivos y Texto Alternativo (Alt Text)?
+[ ] ¿Puse enlaces internos hacia otras notas del medio usando un buen texto ancla?
+[ ] ¿Están bien destacadas las citas y hay fuentes verificables?
+[ ] ¿El artículo está firmado con mi usuario?
