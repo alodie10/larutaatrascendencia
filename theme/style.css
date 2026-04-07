@@ -734,4 +734,191 @@ section { padding: 7rem 0; position: relative; scroll-margin-top: 100px; }
     .hero-meta { gap: 1rem; }
     section { padding: 5rem 0; }
     .infographic-frame { height: 400px; }
+    .author-bio-box { flex-direction: column; text-align: center; }
+}
+
+/* ===== SINGLE POST & SEO/GEO GUIDES ===== */
+
+/* Contenedor del artículo */
+.single-post-wrapper {
+    max-width: 800px; /* Ancho óptimo para lectura */
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.article-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.entry-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.entry-header .entry-title {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-shadow: var(--glow-cyan);
+}
+
+.entry-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.post-thumbnail {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.entry-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+}
+
+.entry-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* SEO Lógico: Jerarquía H2 / H3 */
+.entry-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--cyan);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.entry-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+/* E-E-A-T: Estructura de Citas (Blockquotes) */
+.entry-content blockquote {
+    background: rgba(112, 0, 255, 0.05);
+    border-left: 4px solid var(--violet);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 16px 16px 0;
+    font-style: italic;
+    color: #f1f5f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.entry-content blockquote::before {
+    content: '"';
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    color: rgba(112, 0, 255, 0.2);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    line-height: 1;
+}
+
+/* GEO: Resumen (Puntos Clave) */
+ul.is-style-geo-summary {
+    background: linear-gradient(135deg, rgba(0, 242, 255, 0.05) 0%, rgba(112, 0, 255, 0.05) 100%);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 12px;
+    padding: 2rem 2rem 2rem 3.5rem;
+    margin: 2rem 0;
+    box-shadow: inset 0 0 20px rgba(0, 242, 255, 0.02);
+    list-style: none; /* Quitamos viñeta estándar */
+    position: relative;
+}
+
+ul.is-style-geo-summary::before {
+    content: 'PUNTOS CLAVE';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--space-bg);
+    color: var(--cyan);
+    font-size: 0.70rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    padding: 0 10px;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 20px;
+}
+
+ul.is-style-geo-summary li {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+ul.is-style-geo-summary li::before {
+    content: '→';
+    color: var(--cyan);
+    position: absolute;
+    left: -1.5rem;
+    font-weight: bold;
+}
+
+/* E-E-A-T: Biografía de Autor */
+.entry-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-bio-box {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.author-avatar img {
+    border-radius: 50%;
+    border: 2px solid var(--violet);
+    box-shadow: 0 0 15px rgba(112, 0, 255, 0.3);
+}
+
+.author-info .author-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.author-info .author-name span {
+    color: var(--text-primary);
+}
+
+.author-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }

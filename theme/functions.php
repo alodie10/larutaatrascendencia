@@ -114,3 +114,16 @@ function lrt_register_customizer_hero( $wp_customize ) {
     ));
 }
 add_action( 'customize_register', 'lrt_register_customizer_hero' );
+
+// 5. Registrar estilos de bloques Gutenberg (GEO)
+function lrt_register_block_styles() {
+    register_block_style(
+        'core/list',
+        array(
+            'name'         => 'geo-summary',
+            'label'        => __( 'Resumen GEO (Puntos Clave)', 'lrt-theme' ),
+            'is_default'   => false,
+        )
+    );
+}
+add_action( 'init', 'lrt_register_block_styles' );
